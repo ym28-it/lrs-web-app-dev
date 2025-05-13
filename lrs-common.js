@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // mode-config.jsonの適用
     const urlParams = new URLSearchParams(window.location.search);
-    const mode = urlParams.get('mode') || 'default';
+    const mode = urlParams.get('mode') || 'hybrid-gmp';
     const version = urlParams.get('version') || 'v7.3';
 
     const configFilePath = "./mode-config.json";
