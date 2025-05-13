@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         showLoading();
         outputArea.value = '';
+        elapsedTime.textContent = '0 ms';
 
         const inputText = inputArea.value;
 
