@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         resultArea.value += "\n=== Start Experiment ===\n";
 
         // const inputText = inputArea.value;
-        const moduleParams = ['hybrid.js', 'lrs-mp64.js', 'lrs-long64-safe.js', 'lrs-long64-unsafe.js','lrs-long128-safe.js', 'lrs-long128-unsafe.js'];
+        const moduleParams = ['hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-mp64.js', 'lrs-long64-safe.js', 'lrs-long64-unsafe.js','lrs-long128-safe.js', 'lrs-long128-unsafe.js'];
 
         for (const file of inputFileList) {
             const inputText = await readFileAsync(file);
