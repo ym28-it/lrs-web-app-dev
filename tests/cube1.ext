@@ -1,0 +1,16 @@
+cube1
+V-representation
+begin
+8 4 rational
+ 1  0  0  0 
+ 1  1  0  0 
+ 1  0  1  0 
+ 1  1  1  0 
+ 1  0  0  1 
+ 1  1  0  1
+ 1  0  1  1 
+ 1  1  1  1
+end
+volume
+printcobasis
+allbases

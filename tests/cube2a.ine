@@ -1,0 +1,12 @@
+cube2a
+H-representation
+begin
+5 4 rational
+ 0  1  0  0 
+ 0  0  1  0 
+ 1 -1  0  0 
+ 1  0 -1  0 
+ 1  0  0 -1 
+end
+printcobasis
+geometric

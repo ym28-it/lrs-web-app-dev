@@ -1,0 +1,14 @@
+cube7
+V-representation
+begin
+8 4 rational
+ 1  1  1  1 
+ 1  0  1  1 
+ 1  1  0  1 
+ 1  0  0  1 
+ 1  1  1  0 
+ 1  1  0  0 
+ 1  0  0  0 
+ 1  0  1  0 
+end
+project 2 1 3

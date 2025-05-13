@@ -1,0 +1,173 @@
+/* common.css */
+body {
+font-size: 16px;
+font-family: Arial, sans-serif;
+line-height: 1.6;
+margin: 15px;
+}
+
+/* ヘッダー部分 */
+.header {
+display: flex;
+align-items: flex-end;
+gap: 10px;
+margin-bottom: 20px;
+}
+
+.header h1,
+.header h3 {
+margin: 0;
+}
+
+.header img {
+    width: 30px;
+    height: 30px;
+}
+
+/* 固定ボタン */
+.fixed-button {
+position: absolute;
+top: 10px;
+right: 10px;
+padding: 10px 20px;
+font-size: 16px;
+background-color: #007BFF;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+.fixed-button:hover {
+background-color: #0056b3;
+}
+
+/* メインコンテンツ */
+.main {
+margin: 0 auto 10px;
+max-width: 900px;
+text-align: left;
+}
+
+/* 入力と出力を横並びにするラッパー */
+.io-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .io-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #input, #output {
+        width: 48%;
+    }
+
+    #inputArea,
+    #outputArea {
+        height: 60vh;
+        min-height: 200px;
+    }
+
+    #outputFileName {
+        width: 130px;
+    }
+
+}
+
+/* テキストエリア */
+textarea {
+width: 100%;
+max-width: 800px;
+height: 25vh;
+min-height: 200px;
+margin: 0 auto 10px;
+display: block;
+}
+
+/* ボタン */
+button {
+position: relative;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+border: none;
+background-color: #007BFF;
+color: white;
+border-radius: 5px;
+}
+button:hover {
+background-color: #0056b3;
+}
+
+label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* tooltipのスタイル */
+.tooltip {
+position: absolute;
+top: -40px;
+left: 50%;
+transform: translateX(-50%);
+background-color: #333;
+color: #fff;
+font-size: 14px;
+padding: 5px 10px;
+border-radius: 5px;
+white-space: nowrap;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.2s, visibility 0.2s;
+}
+button:hover .tooltip {
+opacity: 1;
+visibility: visible;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 400px) {
+.fixed-button {
+    position: static;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+}
+
+/* その他の基本スタイル */
+pre {
+background-color: #f4f4f4;
+padding: 10px;
+border: 1px solid #ddd;
+}
+
+/* ローディングスピナーの基本スタイル */
+#loadingIndicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #007BFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none; /* 初期状態は非表示 */
+}
+
+  /* 回転アニメーション */
+@keyframes spin {
+0% { transform: translate(-50%, -50%) rotate(0deg); }
+100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9em;
+}
