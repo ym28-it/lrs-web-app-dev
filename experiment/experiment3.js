@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function runWorker(moduleParam, inputText) {
         return new Promise((resolve, reject) => {
-            const workerUrl = `../lrs-worker.js?module=${moduleParam}`;
+            const workerUrl = `./lrs-worker-ex.js?module=${moduleParam}`;
             const worker = new Worker(workerUrl);
             console.log('create Worker', workerUrl);
 
