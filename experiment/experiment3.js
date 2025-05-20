@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // worker controller
     let currentWorker = null;
+    elapsedTimes = {};
 
     function runWorker(moduleParam, inputText) {
         return new Promise((resolve, reject) => {
@@ -157,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const { result, elapsedTime } = await runWorker(moduleParam, inputText);
 
                 timeRecord[moduleParam] = elapsedTime;
-                combinedOutput += combinedOutput += `----- ${moduleParam} -----\n${result}\n\n`;
+                combinedOutput += `\n----- ${moduleParam} -----\n${result}\n\n`;
             }
 
             executionTimes.push(timeRecord);
