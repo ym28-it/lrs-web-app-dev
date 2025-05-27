@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LRS test</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/experiment.css">
 </head>
 <body>
     <header class="header">
@@ -24,24 +25,27 @@
         <label for="fileInput">Upload Input Files:</label>
         <input type="file" id="fileInput" multiple>
 
-        <div>
-            <label for="inputArea">Input files Waiting List:</label>
-            <textarea id="inputArea" rows="10" cols="20" readonly></textarea><br>
-            <button type="submit" id="runProgram">
-                Submit
-                <span class="tooltip">Ctrl+Enter or Cmd+Enter</span>
-            </button>
-        </div>
+        <div class="io-wrapper">
+            <div id="inputAreaContainer">
+                <label for="inputArea">Input files Waiting List:</label>
+                <textarea id="inputArea" rows="10" cols="20" readonly></textarea><br>
+                <button type="submit" id="runProgram">
+                    Submit
+                    <span class="tooltip">Ctrl+Enter or Cmd+Enter</span>
+                </button>
+            </div>
 
-        <div id="loadingIndicator"></div>
+            <div id="loadingIndicator"></div>
 
-        <div>
-            <label for="resultArea">Experiment-Result:</label>
-            <textarea id="resultArea" rows="10" cols="20" readonly></textarea>
-            <label for="resultFileName">Result File Name:</label>
-            <input type="text" id="ResultFileName" placeholder="experiment-result.txt"><br>
-            <button type="submit" id="downloadResult">Download Result</button>
+            <div id="resultAreaContainer">
+                <label for="resultArea">Experiment-Result:</label>
+                <textarea id="resultArea" rows="10" cols="20" readonly></textarea>
+                <label for="resultFileName">Result File Name:</label>
+                <input type="text" id="ResultFileName" placeholder="experiment-result.txt"><br>
+                <button type="submit" id="downloadResult">Download Result</button>
+            </div>
         </div>
+        
 
         <div>
             <h4>Execution Time Graph</h4>
@@ -51,5 +55,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="module" src="./chart.js"></script>
-    <script type="module" src="./experiment3.js"></script>
+    <script type="module" src="./experiment.js"></script>
 </body>

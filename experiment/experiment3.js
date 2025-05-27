@@ -1,5 +1,7 @@
 // experiment3.js
 import { drawExecutionTimeChart } from "./chart.js";
+import { makeCsv } from "./csv.js";
+
 
 document.addEventListener('DOMContentLoaded', async () => {
     const fileInput = document.getElementById('fileInput');
@@ -106,7 +108,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     console.log('Worker is ready. Sending input data.');
                     worker.postMessage({ input: inputText });
                 } else if (e.data.error) {
-                    outputArea.value += "Error: " + e.data.error;
+                    // outputArea.value += "Error: " + e.data.error;
                     resultArea.value += "Error:" + e.data.error;
                     worker.terminate();
                     reject(e.data.error);
@@ -123,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             worker.onerror = function (err) {
                 console.error("Worker Error: ", err);
-                outputArea.value += "Worker Error: " + err.message;
+                // outputArea.value += "Worker Error: " + err.message;
                 resultArea.value += "Worker Error:" + err.message;
                 worker.terminate();
                 reject(err);
@@ -145,7 +147,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         resultArea.value += "\n=== Start Experiment ===\n";
 
         // const inputText = inputArea.value;
+        // all modules setting
         const moduleParams = ['hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-gmp.js', 'lrs-minigmp.js', 'lrs-mp64.js', 'lrs-long64-safe.js', 'lrs-long64-unsafe.js','lrs-long128-safe.js', 'lrs-long128-unsafe.js'];
+        const csvData = makeCsv(inputFileList, moduleParams);
+        csvData.initTable();
 
         for (const file of inputFileList) {
             const inputText = await readFileAsync(file);
@@ -158,23 +163,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const { result, elapsedTime } = await runWorker(moduleParam, inputText);
 
                 timeRecord[moduleParam] = elapsedTime;
+                csvData.recordData(moduleParam, file.name, elapsedTime);
                 combinedOutput += `\n----- ${moduleParam} -----\n${result}\n\n`;
             }
 
             executionTimes.push(timeRecord);
 
             // 自動ダウンロード（ファイル出力）
-            const blob = new Blob([combinedOutput], { type: 'text/plain' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = `${file.name}_output.txt`;
-            a.click();
-            URL.revokeObjectURL(a.href);
+            // const blob = new Blob([combinedOutput], { type: 'text/plain' });
+            // const a = document.createElement('a');
+            // a.href = URL.createObjectURL(blob);
+            // a.download = `${file.name}_output.txt`;
+            // a.click();
+            // URL.revokeObjectURL(a.href);
 
             // 処理済み以外を次のinputFileListに残す
             resultArea.value += `[Completion] ${file.name}\n`;
             // 処理済みとして除外（この例では除外しない方がわかりやすい）
         }
+
+        console.log(`csv table: ${csvData.checkTable}`);
+        const blob = new Blob([csvData.tableToCsv], { type: 'text/plain' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `lrs-js-result.csv`;
+        a.click();
+        URL.revokeObjectURL(a.href);
 
         // draw chart
         const labels = executionTimes.map(e => e.filename);
