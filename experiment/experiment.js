@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // const inputText = inputArea.value;
         // all modules setting
-        const moduleParams = ['hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-gmp.js', 'lrs-minigmp.js', 'lrs-mp64.js', 'lrs-long64-safe.js', 'lrs-long64-unsafe.js','lrs-long128-safe.js', 'lrs-long128-unsafe.js'];
+        const moduleParams = ['lrs-long64-safe.js', 'lrs-long128-safe.js', 'lrs-gmp.js', 'lrs-minigmp.js','hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-mp64.js', 'lrs-long64-unsafe.js', 'lrs-long128-unsafe.js'];
         const csvData = makeCsv(inputFileList, moduleParams);
         csvData.initTable();
         console.log('init table');

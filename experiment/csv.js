@@ -18,10 +18,10 @@ export function makeCsv(files, modules) {
     }
 
     function tableToCsv() {
-        const rows = [['Module', ...files.map(f => f.name)]];
+        const rows = [['FileName', ...modules]];
 
-        modules.forEach(mod => {
-            const row = [mod, ...files.map(file => table[mod][file.name] ?? '')];
+        files.forEach(file => {
+            const row = [file.name, ...modules.map(mod => table[mod][file.name] ?? '')];
             rows.push(row);
         });
 
