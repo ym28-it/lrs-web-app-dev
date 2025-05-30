@@ -18,14 +18,28 @@ export async function runWorker(moduleParam, inputText) {
                 resultArea.value += "Error:" + e.data.error;
                 worker.terminate();
                 reject(e.data.error);
-            } else if (e.data.elapsedTime) {
-                console.log(`elapsedTime: ${e.data.elapsedTime}`);
-                elapsed = e.data.elapsedTime;
-                resultArea.value += `${moduleParam}: \n${e.data.elapsedTime} ms\n`;
-            } else if (e.data.result) {
+            } else if (e.data.Result) {
+                const Result = e.data.Result;
+                console.log('get timeResult');
+                console.log(`elapsedTime: ${Result.totalTime} ms`);
+                elapsed = Result.totalTime;
+
+                resultArea.value += `\n=== ${moduleParam} ===\n`;
+                resultArea.value += `FSWriteTime: ${Result.FSWriteTime} ms\n`;
+                resultArea.value += `WasmCallTime: ${Result.WasmCallTime} ms\n`;
+                resultArea.value += `FSReadTime: ${Result.FSReadTime} ms\n`;
+                resultArea.value += `=== ${moduleParam} Total ===\n`;
+                resultArea.value += `TotalTime: \n${Result.totalTime} ms\n`;
+
                 console.log('get output data');
                 worker.terminate();
-                resolve({ result: e.data.result, elapsedTime: elapsed});
+                resolve({
+                    result: Result.results,
+                    elapsedTime: elapsed,
+                    FSWriteTime: Result.FSWriteTime,
+                    WasmCallTime: Result.WasmCallTime,
+                    FSReadTime: Result.FSReadTime
+                });
             }
         };
 

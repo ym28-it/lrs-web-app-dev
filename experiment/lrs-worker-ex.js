@@ -36,11 +36,22 @@ Module.onRuntimeInitialized = function() {
 
         try {
             const start = performance.now();
-            let results = heavyWasmProcessing(input);
+            let results, moduleStart, moduleEnd;
+            results, moduleStart, moduleEnd = heavyWasmProcessing(input);
             const end = performance.now();
             // 結果をメインスレッドに返送
-            self.postMessage({elapsedTime: end-start});
-            self.postMessage({ result: results });
+            console.log('Processing completed in worker.');
+            const Result = {
+                FSWriteTime: moduleStart - start,
+                WasmCallTime: moduleEnd - moduleStart,
+                FSReadTime: end - moduleEnd,
+                totalTime: end - start,
+                results: results
+            };
+            console.log('Result', Result);
+            self.postMessage({Result: Result});
+            // 出力結果をメインスレッドに送信
+            // self.postMessage({ result: results });
         } catch (err) {
             console.log("Error in onRuntimeInitialized:\n", err);
             self.postMessage({ error: err.toString() });
@@ -58,11 +69,15 @@ function heavyWasmProcessing(input) {
     console.log('Files written in virtual FS in worker.');
 
     // 仮想ファイルシステム上のファイルパスを引数としてWasmプログラムを実行
+    const moduleStart = performance.now();
+    console.log('Module.callMain start');
     Module.callMain([`/${inputFileName}`, `/${outputFileName}`]);
+    const moduleEnd = performance.now();
     console.log('Module.callMain executed in worker.');
 
     // 出力ファイルを読み込む
     const outputText = FS.readFile(`/${outputFileName}`, { encoding: 'utf8' });
     console.log('output data', outputText);
-    return outputText;
+    return outputText, moduleStart, moduleEnd;
+    // return outputText;
 }

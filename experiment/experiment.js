@@ -18,7 +18,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
     let inputFileList = [];
+    let wakeLock = null;
     let currentWorker = null;
+
+    async function requestWakeLock() {
+        // Wake Lock APIを使用して画面のスリープを防止
+        if (wakeLock !== null) {
+            console.log('[Wake Lock] Screen wake lock is already active.');
+            return;
+        }
+        try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            console.log('[Wake Lock] Screen wake lock is active.');
+            wakeLock.addEventListener('release', () => {
+                console.log('[Wake Lock] Screen wake lock has been released.');
+                // wakeLock = null;
+            });
+        } catch (error) {
+            console.error('[Wake Lock] Error requesting screen wake lock:', error);
+        }
+    }
 
     fileInput.addEventListener('change', async (event) => {
         const files = event.target.files;
@@ -41,6 +60,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     async function runProgram() {
+        await requestWakeLock();
+        console.log('requestWakeLock run');
         logEnvInfo();
         console.log('logEnvInfo run');
 
