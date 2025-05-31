@@ -36,8 +36,10 @@ Module.onRuntimeInitialized = function() {
 
         try {
             const start = performance.now();
-            let results, moduleStart, moduleEnd;
-            results, moduleStart, moduleEnd = heavyWasmProcessing(input);
+            let { results, moduleStart, moduleEnd } = heavyWasmProcessing(input);
+            console.log(`moduleStart: ${moduleStart}, moduleEnd: ${moduleEnd}`);
+            console.log('heavyWasmProcessing completed in worker.');
+            // heavyWasmProcessingの結果を受け取る
             const end = performance.now();
             // 結果をメインスレッドに返送
             console.log('Processing completed in worker.');
@@ -78,6 +80,10 @@ function heavyWasmProcessing(input) {
     // 出力ファイルを読み込む
     const outputText = FS.readFile(`/${outputFileName}`, { encoding: 'utf8' });
     console.log('output data', outputText);
-    return outputText, moduleStart, moduleEnd;
+    return {
+        results: outputText,
+        moduleStart: moduleStart,
+        moduleEnd: moduleEnd
+    };
     // return outputText;
 }

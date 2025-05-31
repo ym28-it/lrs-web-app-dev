@@ -6,6 +6,7 @@ import { runWorker } from "./runWorker.js";
 import { readFileAsync } from "./readFileAsync.js";
 // import { resultDownloadBtn } from "./resultDownloadBtn.js";
 import { makeCsv } from "./csv.js";
+import { autoDownloadOutput } from "./autoDownloadOutput.js";
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -75,8 +76,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         resultArea.value += "\n=== Start Experiment ===\n";
 
         // const inputText = inputArea.value;
-        // all modules setting
-        const moduleParams = ['lrs-long64-safe.js', 'lrs-long128-safe.js', 'lrs-gmp.js', 'lrs-minigmp.js','hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-mp64.js', 'lrs-long64-unsafe.js', 'lrs-long128-unsafe.js'];
+        // all modules setting removed lrs-mp64.js
+        const moduleParams = ['lrs-long64-safe.js', 'lrs-long128-safe.js', 'lrs-gmp.js', 'lrs-minigmp.js','hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-long64-unsafe.js', 'lrs-long128-unsafe.js'];
         const csvData = makeCsv(inputFileList, moduleParams);
         csvData.initTable();
         console.log('init table');
@@ -84,25 +85,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (const file of inputFileList) {
             const inputText = await readFileAsync(file);
             resultArea.value += `\nIn Process ${file.name}\n`;
-
-            let timeRecord = { filename: file.name };
-            let combinedOutput = "";
+            console.log(`Processing file: ${file.name}`);
+            // 各モジュールごとに処理を実行
+            let totalTimeRecord = { filename: file.name };
 
             for (const moduleParam of moduleParams) {
                 const { result, elapsedTime } = await runWorker(moduleParam, inputText);
+                console.log(`Module: ${moduleParam}, Elapsed Time: ${elapsedTime} ms`);
 
-                timeRecord[moduleParam] = elapsedTime;
+                totalTimeRecord[moduleParam] = elapsedTime;
                 csvData.recordData(moduleParam, file.name, elapsedTime);
-                combinedOutput += `\n----- ${moduleParam} -----\n${result}\n\n`;
+                autoDownloadOutput(result, elapsedTime, moduleParam, file.name);
+                resultArea.value += `\n=== End ${moduleParam} ===\n`;
             }
 
-            executionTimes.push(timeRecord);
+            executionTimes.push(totalTimeRecord);
 
             // 処理済み以外を次のinputFileListに残す
             resultArea.value += `[Completion] ${file.name}\n`;
             // 処理済みとして除外（この例では除外しない方がわかりやすい）
         }
 
+        console.log('All files processed.');
+        // make csv file
         console.log(`csv table: ${csvData.checkTable()}`);
         const csvString = csvData.tableToCsv();
         const BOM = '\uFEFF';

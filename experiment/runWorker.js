@@ -28,7 +28,6 @@ export async function runWorker(moduleParam, inputText) {
                 resultArea.value += `FSWriteTime: ${Result.FSWriteTime} ms\n`;
                 resultArea.value += `WasmCallTime: ${Result.WasmCallTime} ms\n`;
                 resultArea.value += `FSReadTime: ${Result.FSReadTime} ms\n`;
-                resultArea.value += `=== ${moduleParam} Total ===\n`;
                 resultArea.value += `TotalTime: \n${Result.totalTime} ms\n`;
 
                 console.log('get output data');
@@ -36,9 +35,9 @@ export async function runWorker(moduleParam, inputText) {
                 resolve({
                     result: Result.results,
                     elapsedTime: elapsed,
-                    FSWriteTime: Result.FSWriteTime,
-                    WasmCallTime: Result.WasmCallTime,
-                    FSReadTime: Result.FSReadTime
+                    // FSWriteTime: Result.FSWriteTime,
+                    // WasmCallTime: Result.WasmCallTime,
+                    // FSReadTime: Result.FSReadTime
                 });
             }
         };
