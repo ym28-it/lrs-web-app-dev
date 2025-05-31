@@ -37,6 +37,17 @@ export function makeCsv(files, modules) {
             .join('\r\n');
     }
 
+    function csvDownload(filename, csvString) {
+        const BOM = '\uFEFF';
+        const blob = new Blob([BOM + csvString], { type: 'text/csv;charset=utf-8;' });
+        const a = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        a.href = url;
+        a.download = `${filename}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
     function checkTable() {
         return table;
     }
@@ -46,7 +57,8 @@ export function makeCsv(files, modules) {
         initTable,
         recordData,
         tableToCsv,
-        checkTable
+        checkTable,
+        csvDownload
     }
 }
 

@@ -35,9 +35,10 @@ export async function runWorker(moduleParam, inputText) {
                 resolve({
                     result: Result.results,
                     elapsedTime: elapsed,
-                    // FSWriteTime: Result.FSWriteTime,
-                    // WasmCallTime: Result.WasmCallTime,
-                    // FSReadTime: Result.FSReadTime
+                    worker: worker,
+                    FSWriteTime: Result.FSWriteTime,
+                    WasmCallTime: Result.WasmCallTime,
+                    FSReadTime: Result.FSReadTime
                 });
             }
         };

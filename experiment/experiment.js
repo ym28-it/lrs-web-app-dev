@@ -82,51 +82,61 @@ document.addEventListener('DOMContentLoaded', async () => {
         csvData.initTable();
         console.log('init table');
 
-        for (const file of inputFileList) {
-            const inputText = await readFileAsync(file);
-            resultArea.value += `\nIn Process ${file.name}\n`;
-            console.log(`Processing file: ${file.name}`);
-            // 各モジュールごとに処理を実行
-            let totalTimeRecord = { filename: file.name };
+        try {
+            for (const file of inputFileList) {
+                const inputText = await readFileAsync(file);
+                resultArea.value += `\nIn Process ${file.name}\n`;
+                console.log(`Processing file: ${file.name}`);
+                // 各モジュールごとに処理を実行
+                let totalTimeRecord = { filename: file.name };
 
-            for (const moduleParam of moduleParams) {
-                const { result, elapsedTime } = await runWorker(moduleParam, inputText);
-                console.log(`Module: ${moduleParam}, Elapsed Time: ${elapsedTime} ms`);
+                for (const moduleParam of moduleParams) {
+                    const { result, elapsedTime, worker, FSWriteTime, WasmCallTime, FSReadTime } = await runWorker(moduleParam, inputText);
+                    worker.terminate();
+                    console.log(`Worker terminated for module: ${moduleParam}`);
+                    console.log(`Module: ${moduleParam}, Elapsed Time: ${elapsedTime} ms`);
 
-                totalTimeRecord[moduleParam] = elapsedTime;
-                csvData.recordData(moduleParam, file.name, elapsedTime);
-                autoDownloadOutput(result, elapsedTime, moduleParam, file.name);
-                resultArea.value += `\n=== End ${moduleParam} ===\n`;
+                    totalTimeRecord[moduleParam] = elapsedTime;
+                    csvData.recordData(moduleParam, file.name, elapsedTime);
+                    autoDownloadOutput(result, elapsedTime, FSWriteTime, WasmCallTime, FSReadTime, moduleParam, file.name);
+                    resultArea.value += `\n=== End ${moduleParam} ===\n`;
+                }
+
+                executionTimes.push(totalTimeRecord);
+
+                // 処理済み以外を次のinputFileListに残す
+                resultArea.value += `[Completion] ${file.name}\n`;
+                // 処理済みとして除外（この例では除外しない方がわかりやすい）
             }
 
-            executionTimes.push(totalTimeRecord);
+            console.log('All files processed.');
+            // make csv file
+            const csvString = csvData.tableToCsv();
+            console.log('CSV data prepared.');
+            csvData.csvDownload('lrs-experiment-results', csvString);
 
-            // 処理済み以外を次のinputFileListに残す
-            resultArea.value += `[Completion] ${file.name}\n`;
-            // 処理済みとして除外（この例では除外しない方がわかりやすい）
+            // draw chart
+            const labels = executionTimes.map(e => e.filename);
+            drawExecutionTimeChart(executionTimes, moduleParams, labels);
+
+            inputArea.value = 'Completed \n';
+            resultArea.value += "\n=== Termination ===\n";
+        } catch (error) {
+            console.error('Error during processing:', error);
+            resultArea.value += `\nError: ${error.message}\n`;
+
+            const csvString = csvData.tableToCsv();
+            csvData.csvDownload('lrs-experiment-error-results', csvString);
+        } finally {
+            if (wakeLock !== null) {
+                await wakeLock.release();
+                wakeLock = null;
+                console.log('[Wake Lock] Screen wake lock released.');
+            }
+            currentWorker = null;
+            hideLoading();
         }
-
-        console.log('All files processed.');
-        // make csv file
-        console.log(`csv table: ${csvData.checkTable()}`);
-        const csvString = csvData.tableToCsv();
-        const BOM = '\uFEFF';
-        const blob = new Blob([BOM + csvString], { type: 'text/csv;charset=utf-8;' });
-        const a = document.createElement('a');
-        const url = URL.createObjectURL(blob);
-        a.href = url;
-        a.download = `lrs-js-result.csv`;
-        a.click();
-        URL.revokeObjectURL(url);
-
-        // draw chart
-        const labels = executionTimes.map(e => e.filename);
-        drawExecutionTimeChart(executionTimes, moduleParams, labels);
-
-        inputArea.value = 'Completed \n';
-
-        resultArea.value += "\n=== Termination ===\n";
-        hideLoading();
+        
     }
 })
 
