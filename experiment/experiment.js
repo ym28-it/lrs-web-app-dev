@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 let totalTimeRecord = { filename: file.name };
 
                 for (const moduleParam of moduleParams) {
+                    resultArea.value += `\n=== Start ${moduleParam} ===\n`;
+                    console.log(`Running module: ${moduleParam}`);
                     const { result, elapsedTime, worker, FSWriteTime, WasmCallTime, FSReadTime } = await runWorker(moduleParam, inputText);
                     worker.terminate();
                     console.log(`Worker terminated for module: ${moduleParam}`);

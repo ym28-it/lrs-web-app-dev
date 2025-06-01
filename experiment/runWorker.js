@@ -24,7 +24,6 @@ export async function runWorker(moduleParam, inputText) {
                 console.log(`elapsedTime: ${Result.totalTime} ms`);
                 elapsed = Result.totalTime;
 
-                resultArea.value += `\n=== ${moduleParam} ===\n`;
                 resultArea.value += `FSWriteTime: ${Result.FSWriteTime} ms\n`;
                 resultArea.value += `WasmCallTime: ${Result.WasmCallTime} ms\n`;
                 resultArea.value += `FSReadTime: ${Result.FSReadTime} ms\n`;
