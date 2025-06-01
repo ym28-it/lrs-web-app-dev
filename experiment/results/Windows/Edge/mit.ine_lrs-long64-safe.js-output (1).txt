@@ -1,0 +1,22 @@
+=== mit.ine Output for lrs-long64-safe.js ===
+Module: lrs-long64-safe.js
+Filename: mit.ine
+Elapsed Time: 239.69999998807907 ms
+FSWriteTime: 0.7999999821186066 ms
+WasmCallTime: 238.7000000178814 ms
+FSReadTime: 0.19999998807907104 ms
+Results:
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrslong.h)
+mit.ine
+V-representation
+begin
+***** 9 rational
+ 1  0  0  0  0  0  0  0  0 
+ 1  16  0  0  0  0  0  0  0 
+ 1  24  8  0  0  0  0  0  0 
+ 1  24  24  0  0  0  0  0  0 
+*64bit integer overflow: try running 128bit or gmp versions
+
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrslong.h)
+*1.000u 2.000s 3Kb 0 flts 0 swaps 0 blks-in 0 blks-out 
+
