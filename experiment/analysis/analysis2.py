@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import os
 
 # CSVファイルのパスを指定
-csv_path = "../results/Windows/Chrome/lrs-experiment-results.csv"  # ファイル名に応じて変更
+csv_path = "./results/lrs-experiment-results_windows_chrome.csv"  # ファイル名に応じて変更
 
 # CSVを読み込む
 df = pd.read_csv(csv_path)
@@ -49,4 +49,6 @@ plt.xticks(rotation=45)
 plt.legend(title="Module")
 plt.tight_layout()
 plt.grid(True)
+# PNG形式で保存（ファイル名を適宜変更可）
+plt.savefig(f"execution_time_by_input_and_module.png", dpi=300)
 plt.show()

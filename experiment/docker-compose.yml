@@ -1,0 +1,10 @@
+services:
+  analysis:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./analysis:/app/analysis
+    tty: true
+    stdin_open: true
+    command: /bin/bash

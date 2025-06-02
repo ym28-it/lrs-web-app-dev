@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import os
 
 # ファイルパス（1つのファイルに統合されている前提）
-csv_path = "../results/Windows/Chrome/lrs-experiment-results.csv"  # 適宜修正
+csv_path = "./results/lrs-experiment-results_windows_chrome.csv"  # 適宜修正
 
 # データ読み込み
 df = pd.read_csv(csv_path)
@@ -29,7 +29,7 @@ for input_file in df_melted['Input'].unique():
     plt.figure(figsize=(10, 6))
     sns.lineplot(
         data=subset,
-        x='modules',
+        x='module',
         y='TotalTime(ms)',
         hue='Browser',
         marker='o'
@@ -42,4 +42,7 @@ for input_file in df_melted['Input'].unique():
     plt.tight_layout()
     plt.legend(title="Browser")
     plt.grid(True)
+
+    # PNG形式で保存（ファイル名を適宜変更可）
+    plt.savefig(f"execution_time_by_input_and_module_{input_file}.png", dpi=300)
     plt.show()
