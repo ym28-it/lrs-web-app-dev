@@ -33,12 +33,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.log('[Wake Lock] Screen wake lock is active.');
             wakeLock.addEventListener('release', () => {
                 console.log('[Wake Lock] Screen wake lock has been released.');
-                // wakeLock = null;
+                wakeLock = null;
             });
         } catch (error) {
             console.error('[Wake Lock] Error requesting screen wake lock:', error);
         }
     }
+
+    document.addEventListener('visibilitychange', async () => {
+        if (document.visibilityState === 'visible') {
+            console.log('[Wake Lock] Document visible again, re-requesting wake lock.');
+            await requestWakeLock();
+        } else {
+            console.log('[Wake Lock] Document hidden, wake lock may be released by browser.');
+        }
+    });
+
 
     fileInput.addEventListener('change', async (event) => {
         const files = event.target.files;
