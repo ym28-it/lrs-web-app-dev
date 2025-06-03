@@ -21,7 +21,7 @@ df = pd.read_csv(csv_path)
 df_melted = df.melt(id_vars=['FileName'], var_name='module', value_name='TotalTime(ms)')
 
 # 実行環境を 'Browser'、インプットファイル名を 'Input' として抽出
-df_melted['Browser'] = df_melted['FileName'].apply(lambda x: 'Edge' if 'byEdge' in x else 'Chrome')
+df_melted['Browser'] = df_melted['FileName'].apply(lambda x: 'edge' if 'byEdge' in x else 'byChrome')
 df_melted['Input'] = df_melted['FileName'].apply(lambda x: os.path.basename(x).split('by')[0])
 
 # ブラウザ名を入力名に結合（Input = filename + browser）して一意にする

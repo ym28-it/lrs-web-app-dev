@@ -18,7 +18,7 @@ df = pd.read_csv(csv_path)
 
 # 'FileName' を基に 'Input' と 'Browser' を抽出
 df_melted = df.melt(id_vars=['FileName'], var_name='module', value_name='TotalTime(ms)')
-df_melted['Browser'] = df_melted['FileName'].apply(lambda x: 'Edge' if 'byEdge' in x else 'Chrome')
+df_melted['Browser'] = df_melted['FileName'].apply(lambda x: 'edge' if 'byEdge' in x else 'byChrome')
 df_melted['Input'] = df_melted['FileName'].apply(lambda x: os.path.basename(x).split('by')[0])
 
 # 入力ファイルごとにグラフを描画
