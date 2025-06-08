@@ -86,8 +86,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         resultArea.value += "\n=== Start Experiment ===\n";
 
         // const inputText = inputArea.value;
-        // all modules setting removed lrs-mp64.js, 'lrs-minigmp.js', 'hybrid-minigmp.js'
-        const moduleParams = ['lrs-long64-safe.js', 'lrs-long128-safe.js', 'lrs-gmp.js', 'hybrid-gmp.js', 'lrs-long64-unsafe.js', 'lrs-long128-unsafe.js'];
+        // all modules setting removed lrs-mp64.js
+        // const moduleParams = ['lrs-long64-safe.js', 'lrs-long128-safe.js', 'lrs-gmp.js', 'lrs-minigmp.js', 'hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-long64-unsafe.js', 'lrs-long128-unsafe.js'];
+        const moduleParams = ['lrs-minigmp.js', 'hybrid-minigmp.js'];
         const csvData = makeCsv(inputFileList, moduleParams);
         csvData.initTable();
         console.log('init table');
