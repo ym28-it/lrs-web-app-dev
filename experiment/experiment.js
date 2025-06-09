@@ -7,6 +7,7 @@ import { readFileAsync } from "./readFileAsync.js";
 // import { resultDownloadBtn } from "./resultDownloadBtn.js";
 import { makeCsv } from "./csv.js";
 import { autoDownloadOutput } from "./autoDownloadOutput.js";
+import { selectModuleParams, setupModuleSelectControls } from "./selectModuleParams.js";
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -16,6 +17,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const resultFileNameInput = document.getElementById('resultFileName');
     const runProgramButton = document.getElementById('runProgram');
     const executionTimes = [];
+
+    setupModuleSelectControls();
 
 
     let inputFileList = [];
@@ -86,10 +89,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         resultArea.value += "\n=== Start Experiment ===\n";
 
         // const inputText = inputArea.value;
-        // all modules setting removed lrs-mp64.js
+        // all modules setting remove lrs-mp64.js
         // const moduleParams = ['lrs-long64-safe.js', 'lrs-long128-safe.js', 'lrs-gmp.js', 'lrs-minigmp.js', 'hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-long64-unsafe.js', 'lrs-long128-unsafe.js'];
         // const moduleParams = ['lrs-minigmp.js', 'hybrid-minigmp.js'];
-        const moduleParams = ['lrs-gmp.js', 'lrs-minigmp.js', 'hybrid-gmp.js', 'hybrid-minigmp.js']
+        // const moduleParams = ['lrs-gmp.js', 'lrs-minigmp.js', 'hybrid-gmp.js', 'hybrid-minigmp.js']
+
+        const moduleParams = selectModuleParams();
+        console.log(`moduleParams: ${moduleParams}`);
+
+        if (moduleParams.length === 0) {
+            alert("Please select at least one module.");
+            hideLoading();
+            return;
+        }
+
         const csvData = makeCsv(inputFileList, moduleParams);
         csvData.initTable();
         console.log('init table');
@@ -108,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const { result, elapsedTime, worker, FSWriteTime, WasmCallTime, FSReadTime } = await runWorker(moduleParam, inputText);
                     worker.terminate();
                     console.log(`Worker terminated for module: ${moduleParam}`);
-                    console.log(`Module: ${moduleParam}, Elapsed Time: ${elapsedTime} ms`);
+                    console.log(`Module: ${moduleParam}, Elapsed Time: ${elapsedTime} s`);
 
                     totalTimeRecord[moduleParam] = elapsedTime;
                     csvData.recordData(moduleParam, file.name, elapsedTime);

@@ -22,12 +22,12 @@ export async function runWorker(moduleParam, inputText) {
                 const Result = e.data.Result;
                 console.log('get timeResult');
                 console.log(`elapsedTime: ${Result.totalTime} ms`);
-                elapsed = Result.totalTime;
+                elapsed = Result.totalTime / 1000;
 
-                resultArea.value += `FSWriteTime: ${Result.FSWriteTime} ms\n`;
-                resultArea.value += `WasmCallTime: ${Result.WasmCallTime} ms\n`;
-                resultArea.value += `FSReadTime: ${Result.FSReadTime} ms\n`;
-                resultArea.value += `TotalTime: \n${Result.totalTime} ms\n`;
+                resultArea.value += `FSWriteTime: ${Result.FSWriteTime / 1000} s\n`;
+                resultArea.value += `WasmCallTime: ${Result.WasmCallTime / 1000} s\n`;
+                resultArea.value += `FSReadTime: ${Result.FSReadTime / 1000} s\n`;
+                resultArea.value += `TotalTime: ${Result.totalTime / 1000} s\n`;
 
                 console.log('get output data');
                 worker.terminate();

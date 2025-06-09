@@ -21,18 +21,34 @@
     </header>
 
     <main class="main">
-        <p>In this mode, all modules are executed in sequence against uploaded inputs and execution time is measured.</p>
+        <p>In this mode, selected modules are executed in sequence against uploaded inputs and execution time is measured.</p>
         <label for="fileInput">Upload Input Files:</label>
         <input type="file" id="fileInput" multiple>
 
         <div class="io-wrapper">
             <div id="inputAreaContainer">
                 <label for="inputArea">Input files Waiting List:</label>
-                <textarea id="inputArea" rows="10" cols="20" readonly></textarea><br>
-                <button type="submit" id="runProgram">
-                    Submit
-                    <span class="tooltip">Ctrl+Enter or Cmd+Enter</span>
-                </button>
+                <textarea id="inputArea" rows="10" cols="20" readonly></textarea>
+
+                <div id="moduleSelection">
+                    <p><strong>Select Modules:</strong></p>
+                    <div id="moduleCheckboxes">
+                        <label><input type="checkbox" value="lrs-long64-safe.js"> lrs-long64-safe.js</label><br>
+                        <label><input type="checkbox" value="lrs-long128-safe.js"> lrs-long128-safe.js</label><br>
+                        <label><input type="checkbox" value="lrs-gmp.js"> lrs-gmp.js</label><br>
+                        <label><input type="checkbox" value="lrs-minigmp.js"> lrs-minigmp.js</label><br>
+                        <label><input type="checkbox" value="hybrid-gmp.js"> hybrid-gmp.js</label><br>
+                        <label><input type="checkbox" value="hybrid-minigmp.js"> hybrid-minigmp.js</label><br>
+                        <label><input type="checkbox" value="lrs-long64-unsafe.js"> lrs-long64-unsafe.js</label><br>
+                        <label><input type="checkbox" value="lrs-long128-unsafe.js"> lrs-long128-unsafe.js</label><br>
+                    </div>
+                    <button type="button" id="selectAllModules">Select All</button>
+                    <button type="button" id="clearAllModules">Clear</button>
+                    <button type="submit" id="runProgram">
+                        Submit
+                        <span class="tooltip">Ctrl+Enter or Cmd+Enter</span>
+                    </button>
+                </div>
             </div>
 
             <div id="loadingIndicator"></div>

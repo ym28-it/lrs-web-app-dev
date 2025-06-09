@@ -28,7 +28,7 @@ export function drawExecutionTimeChart(data, moduleParams, labels) {
                 y: {
                     title: {
                         display: true,
-                        text: "Execution Time (ms)",
+                        text: "Execution Time (s)",
                     },
                 },
                 x: {
