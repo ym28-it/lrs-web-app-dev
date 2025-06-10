@@ -1,4 +1,4 @@
-minigmp 追加テスト Edge
+summary_minigmp_Edge
 [Execution Environment]
 OS: Windows
 Browser: Microsoft Edge

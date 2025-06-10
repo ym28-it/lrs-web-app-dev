@@ -1,0 +1,44 @@
+summary_c30_Firefox
+[Execution Environment]
+OS: Windows
+Browser: Mozilla Firefox
+UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0
+
+=== Start Experiment ===
+
+In Process c30-15.ext
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 2414.341 s
+FSReadTime: 0.236 s
+TotalTime: 2414.578 s
+
+=== End lrs-gmp.js ===
+
+=== Start lrs-minigmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 3137.52 s
+FSReadTime: 0.18 s
+TotalTime: 3137.701 s
+
+=== End lrs-minigmp.js ===
+
+=== Start hybrid-gmp.js ===
+FSWriteTime: 0 s
+WasmCallTime: 2514.798 s
+FSReadTime: 0.178 s
+TotalTime: 2514.976 s
+
+=== End hybrid-gmp.js ===
+
+=== Start hybrid-minigmp.js ===
+FSWriteTime: 0 s
+WasmCallTime: 3262.994 s
+FSReadTime: 0.168 s
+TotalTime: 3263.162 s
+
+=== End hybrid-minigmp.js ===
+[Completion] c30-15.ext
+
+=== Termination ===
