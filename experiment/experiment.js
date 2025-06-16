@@ -92,9 +92,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         // all modules setting remove lrs-mp64.js
         // const moduleParams = ['lrs-long64-safe.js', 'lrs-long128-safe.js', 'lrs-gmp.js', 'lrs-minigmp.js', 'hybrid-gmp.js', 'hybrid-minigmp.js', 'lrs-long64-unsafe.js', 'lrs-long128-unsafe.js'];
         // const moduleParams = ['lrs-minigmp.js', 'hybrid-minigmp.js'];
-        // const moduleParams = ['lrs-gmp.js', 'lrs-minigmp.js', 'hybrid-gmp.js', 'hybrid-minigmp.js']
+        const moduleParams = ['lrs-gmp.js', 'lrs-minigmp.js', 'hybrid-gmp.js', 'hybrid-minigmp.js'];
 
-        const moduleParams = selectModuleParams();
+        // const moduleParams = selectModuleParams();
         console.log(`moduleParams: ${moduleParams}`);
 
         if (moduleParams.length === 0) {
