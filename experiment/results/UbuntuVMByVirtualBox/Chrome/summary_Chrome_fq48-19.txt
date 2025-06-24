@@ -1,0 +1,75 @@
+[Execution Environment]
+OS: Linux
+Browser: Google Chrome
+UserAgent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36
+
+=== Start Experiment ===
+
+In Process fq48-19lrs.ine
+
+=== Start lrs-long64-safe.js ===
+FSWriteTime: 0.002 s
+WasmCallTime: 124.8976 s
+FSReadTime: 0.31830000000001746 s
+TotalTime: 125.21790000000001 s
+
+=== End lrs-long64-safe.js ===
+
+=== Start lrs-long128-safe.js ===
+FSWriteTime: 0.0035 s
+WasmCallTime: 349.27269999999993 s
+FSReadTime: 0.22190000000002327 s
+TotalTime: 349.49809999999997 s
+
+=== End lrs-long128-safe.js ===
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.0009000000000232831 s
+WasmCallTime: 432.2072999999999 s
+FSReadTime: 0.22730000000004658 s
+TotalTime: 432.4355 s
+
+=== End lrs-gmp.js ===
+
+=== Start lrs-minigmp.js ===
+FSWriteTime: 0.001099999999976717 s
+WasmCallTime: 808.6673 s
+FSReadTime: 0.2249000000001397 s
+TotalTime: 808.8933000000001 s
+
+=== End lrs-minigmp.js ===
+
+=== Start hybrid-gmp.js ===
+FSWriteTime: 0.0009000000001396983 s
+WasmCallTime: 124.6443999999999 s
+FSReadTime: 0.15119999999995343 s
+TotalTime: 124.7965 s
+
+=== End hybrid-gmp.js ===
+
+=== Start hybrid-minigmp.js ===
+FSWriteTime: 0.0008000000000465661 s
+WasmCallTime: 125.85619999999996 s
+FSReadTime: 0.15680000000004657 s
+TotalTime: 126.01380000000005 s
+
+=== End hybrid-minigmp.js ===
+
+=== Start lrs-long64-unsafe.js ===
+FSWriteTime: 0.0013000000000465662 s
+WasmCallTime: 123.29419999999995 s
+FSReadTime: 0.14570000000018626 s
+TotalTime: 123.44120000000018 s
+
+=== End lrs-long64-unsafe.js ===
+
+=== Start lrs-long128-unsafe.js ===
+FSWriteTime: 0.0007999999998137355 s
+WasmCallTime: 309.6678999999999 s
+FSReadTime: 0.16170000000018628 s
+TotalTime: 309.8303999999999 s
+
+=== End lrs-long128-unsafe.js ===
+[Completion] fq48-19lrs.ine
+
+=== Termination ===

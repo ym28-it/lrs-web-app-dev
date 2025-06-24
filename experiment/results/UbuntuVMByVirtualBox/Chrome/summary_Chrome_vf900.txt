@@ -1,0 +1,57 @@
+[Execution Environment]
+OS: Linux
+Browser: Google Chrome
+UserAgent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36
+
+=== Start Experiment ===
+
+In Process vf900.ext
+
+=== Start lrs-long128-safe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 280.1127000000002 s
+FSReadTime: 0.054699999999720604 s
+TotalTime: 280.1683999999999 s
+
+=== End lrs-long128-safe.js ===
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.0015 s
+WasmCallTime: 724.6369000000004 s
+FSReadTime: 0.056899999999906865 s
+TotalTime: 724.6953000000003 s
+
+=== End lrs-gmp.js ===
+
+=== Start lrs-minigmp.js ===
+FSWriteTime: 0.0032999999998137353 s
+WasmCallTime: 1641.6401000000005 s
+FSReadTime: 0.05639999999944121 s
+TotalTime: 1641.6997999999999 s
+
+=== End lrs-minigmp.js ===
+
+=== Start hybrid-gmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 278.3482999999998 s
+FSReadTime: 0.055799999999813735 s
+TotalTime: 278.4050999999996 s
+
+=== End hybrid-gmp.js ===
+
+=== Start hybrid-minigmp.js ===
+FSWriteTime: 0.0017999999998137355 s
+WasmCallTime: 280.462 s
+FSReadTime: 0.058600000000558795 s
+TotalTime: 280.52240000000035 s
+
+=== End hybrid-minigmp.js ===
+
+=== Start lrs-long128-unsafe.js ===
+FSWriteTime: 0.0012999999998137355 s
+WasmCallTime: 259.52890000000036 s
+FSReadTime: 0.06119999999925494 s
+TotalTime: 259.59139999999945 s
+
+=== End lrs-long128-unsafe.js ===
+[Completion] vf900.ext

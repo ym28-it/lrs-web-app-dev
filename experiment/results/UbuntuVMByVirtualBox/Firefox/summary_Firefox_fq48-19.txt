@@ -1,0 +1,75 @@
+[Execution Environment]
+OS: Linux
+Browser: Mozilla Firefox
+UserAgent: Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0
+
+=== Start Experiment ===
+
+In Process fq48-19lrs.ine
+
+=== Start lrs-long64-safe.js ===
+FSWriteTime: 0.002 s
+WasmCallTime: 515.191 s
+FSReadTime: 0.1 s
+TotalTime: 515.293 s
+
+=== End lrs-long64-safe.js ===
+
+=== Start lrs-long128-safe.js ===
+FSWriteTime: 0.002 s
+WasmCallTime: 1619.493 s
+FSReadTime: 0.104 s
+TotalTime: 1619.599 s
+
+=== End lrs-long128-safe.js ===
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.003 s
+WasmCallTime: 2099.149 s
+FSReadTime: 0.139 s
+TotalTime: 2099.291 s
+
+=== End lrs-gmp.js ===
+
+=== Start lrs-minigmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 4113.118 s
+FSReadTime: 0.133 s
+TotalTime: 4113.252 s
+
+=== End lrs-minigmp.js ===
+
+=== Start hybrid-gmp.js ===
+FSWriteTime: 0.002 s
+WasmCallTime: 522.565 s
+FSReadTime: 0.103 s
+TotalTime: 522.67 s
+
+=== End hybrid-gmp.js ===
+
+=== Start hybrid-minigmp.js ===
+FSWriteTime: 0.005 s
+WasmCallTime: 533.121 s
+FSReadTime: 0.108 s
+TotalTime: 533.234 s
+
+=== End hybrid-minigmp.js ===
+
+=== Start lrs-long64-unsafe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 512.008 s
+FSReadTime: 0.105 s
+TotalTime: 512.114 s
+
+=== End lrs-long64-unsafe.js ===
+
+=== Start lrs-long128-unsafe.js ===
+FSWriteTime: 0 s
+WasmCallTime: 1384.053 s
+FSReadTime: 0.098 s
+TotalTime: 1384.151 s
+
+=== End lrs-long128-unsafe.js ===
+[Completion] fq48-19lrs.ine
+
+=== Termination ===

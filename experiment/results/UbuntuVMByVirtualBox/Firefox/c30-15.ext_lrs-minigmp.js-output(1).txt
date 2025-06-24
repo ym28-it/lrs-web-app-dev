@@ -1,0 +1,19 @@
+=== c30-15.ext Output for lrs-minigmp.js ===
+Module: lrs-minigmp.js
+Filename: c30-15.ext
+Elapsed Time: 550.032 ms
+FSWriteTime: 8 ms
+WasmCallTime: 550024 ms
+FSReadTime: 0 ms
+Results:
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,mini-gmp)
+*countonly
+H-representation
+begin
+***** 16 rational
+end
+*Totals: facets=341088 bases=319770
+
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,mini-gmp)
+*1.000u 2.000s 3Kb 0 flts 0 swaps 0 blks-in 0 blks-out 
+
