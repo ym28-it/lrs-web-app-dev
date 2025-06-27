@@ -1,0 +1,18 @@
+=== c30-15.ext Output for lrs-gmp.js ===
+Module: lrs-gmp.js
+Filename: c30-15.ext
+Elapsed Time: 924905.8000000119 ms
+FSWriteTime: 1.0999999642372131 ms
+WasmCallTime: 924065.3000000119 ms
+FSReadTime: 839.4000000357628 ms
+Results:
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,_gmp_v.6.2)
+H-representation
+begin
+***** 16 rational
+end
+*Totals: facets=341088 bases=319770
+
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,_gmp_v.6.2)
+*1.000u 2.000s 3Kb 0 flts 0 swaps 0 blks-in 0 blks-out 
+

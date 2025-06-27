@@ -1,0 +1,57 @@
+[Execution Environment]
+OS: Windows
+Browser: Mozilla Firefox
+UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0
+
+=== Start Experiment ===
+
+In Process vf900.ext
+
+=== Start lrs-long128-safe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 88.586 s
+FSReadTime: 0.01 s
+TotalTime: 88.597 s
+
+=== End lrs-long128-safe.js ===
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 231.515 s
+FSReadTime: 0.009 s
+TotalTime: 231.525 s
+
+=== End lrs-gmp.js ===
+
+=== Start lrs-minigmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 580.114 s
+FSReadTime: 0.01 s
+TotalTime: 580.125 s
+
+=== End lrs-minigmp.js ===
+
+=== Start hybrid-gmp.js ===
+FSWriteTime: 0.002 s
+WasmCallTime: 88.824 s
+FSReadTime: 0.009 s
+TotalTime: 88.835 s
+
+=== End hybrid-gmp.js ===
+
+=== Start hybrid-minigmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 88.443 s
+FSReadTime: 0.009 s
+TotalTime: 88.453 s
+
+=== End hybrid-minigmp.js ===
+
+=== Start lrs-long128-unsafe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 81.766 s
+FSReadTime: 0.009 s
+TotalTime: 81.776 s
+
+=== End lrs-long128-unsafe.js ===
+[Completion] vf900.ext

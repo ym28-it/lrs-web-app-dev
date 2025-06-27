@@ -1,0 +1,33 @@
+[Execution Environment]
+OS: Windows
+Browser: Google Chrome
+UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+
+=== Start Experiment ===
+
+In Process perm10.ine
+
+=== Start lrs-long64-safe.js ===
+FSWriteTime: 0.002899999998509884 s
+WasmCallTime: 767.5159000000023 s
+FSReadTime: 0.7680999999977648 s
+TotalTime: 768.2868999999985 s
+
+=== End lrs-long64-safe.js ===
+
+=== Start lrs-long128-safe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 2388.396800000001 s
+FSReadTime: 0.9653999999985099 s
+TotalTime: 2389.3631999999993 s
+
+=== End lrs-long128-safe.js ===
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 3211.5048999999985 s
+FSReadTime: 0.7956000000014901 s
+TotalTime: 3212.3015 s
+
+=== End lrs-gmp.js ===
+[Completion] perm10.ine

@@ -1,0 +1,19 @@
+=== c30-15.ext Output for hybrid-gmp.js ===
+Module: hybrid-gmp.js
+Filename: c30-15.ext
+Elapsed Time: 342.57180000000005 ms
+FSWriteTime: 1 ms
+WasmCallTime: 342570.19999999995 ms
+FSReadTime: 0.6000000000931323 ms
+Results:
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,hybrid_arithmetic,_gmp_v.6.2)
+*countonly
+H-representation
+begin
+***** 16 rational
+end
+*Totals: facets=341088 bases=319770
+
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,hybrid_arithmetic,_gmp_v.6.2)
+*1.000u 2.000s 3Kb 0 flts 0 swaps 0 blks-in 0 blks-out 
+
