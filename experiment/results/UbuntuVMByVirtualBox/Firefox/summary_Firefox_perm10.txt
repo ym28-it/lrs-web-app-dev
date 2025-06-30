@@ -1,0 +1,35 @@
+[Execution Environment]
+OS: Linux
+Browser: Mozilla Firefox
+UserAgent: Mozilla/5.0 (X11; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0
+
+=== Start Experiment ===
+
+In Process perm10.ine
+
+=== Start lrs-long64-safe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 836.679 s
+FSReadTime: 0 s
+TotalTime: 836.68 s
+
+=== End lrs-long64-safe.js ===
+
+=== Start lrs-long128-safe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 2565.799 s
+FSReadTime: 0 s
+TotalTime: 2565.8 s
+
+=== End lrs-long128-safe.js ===
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.005 s
+WasmCallTime: 4149.85 s
+FSReadTime: 0 s
+TotalTime: 4149.855 s
+
+=== End lrs-gmp.js ===
+[Completion] perm10.ine
+
+=== Termination ===

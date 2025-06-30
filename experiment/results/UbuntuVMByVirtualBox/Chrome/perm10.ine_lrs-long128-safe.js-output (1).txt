@@ -1,0 +1,19 @@
+=== perm10.ine Output for lrs-long128-safe.js ===
+Module: lrs-long128-safe.js
+Filename: perm10.ine
+Elapsed Time: 5323.9938999999995 ms
+FSWriteTime: 0.8999999999068677 ms
+WasmCallTime: 5323992.7 ms
+FSReadTime: 0.2999999998137355 ms
+Results:
+*lrs-js:lrslib_v.7.3_2024.5.30(128bit,lrslong.h)
+*countonly
+V-representation
+begin
+***** 11 rational
+end
+*Totals: vertices=3628800 rays=0 bases=3628800 integer_vertices=3628800  max_vertex_depth=45
+
+*lrs-js:lrslib_v.7.3_2024.5.30(128bit,lrslong.h)
+*1.000u 2.000s 3Kb 0 flts 0 swaps 0 blks-in 0 blks-out 
+

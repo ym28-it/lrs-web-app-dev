@@ -1,0 +1,5 @@
+FileName,lrs-long64-safe.js,lrs-long128-safe.js,lrs-gmp.js,lrs-minigmp.js,hybrid-gmp.js,hybrid-minigmp.js,lrs-long64-unsafe.js,lrs-long128-unsafe.js
+fq48-19lrs.ine,98.226,269.154,396.474,860.694,97.588,97.795,94.859,251.233
+vf900.ext,O,88.597,231.525,580.125,88.835,88.453,O,81.776
+c30-15.ext,O,O,334.231,447.286,331.613,442.27,O,O
+perm10.ine,611.035,2021.151,3084.554,O,O,O,O,O

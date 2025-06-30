@@ -1,0 +1,19 @@
+=== perm10.ine Output for lrs-gmp.js ===
+Module: lrs-gmp.js
+Filename: perm10.ine
+Elapsed Time: 9508.7575 ms
+FSWriteTime: 1.199999999254942 ms
+WasmCallTime: 9508756.1 ms
+FSReadTime: 0.2000000011175871 ms
+Results:
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,_gmp_v.6.2)
+*countonly
+V-representation
+begin
+***** 11 rational
+end
+*Totals: vertices=3628800 rays=0 bases=3628800 integer_vertices=3628800  max_vertex_depth=45
+
+*lrs-js:lrslib_v.7.3_2024.5.30(64bit,lrsgmp.h,_gmp_v.6.2)
+*1.000u 2.000s 3Kb 0 flts 0 swaps 0 blks-in 0 blks-out 
+
