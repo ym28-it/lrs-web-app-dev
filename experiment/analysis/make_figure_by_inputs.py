@@ -3,14 +3,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # CSV読み込み
-chrome = pd.read_csv("./results/converted_windows_chrome.csv")
-edge = pd.read_csv("./results/converted_windows_edge.csv")
-firefox = pd.read_csv("./results/converted_windows_firefox.csv")
+cli_ubuntu = pd.read_csv("./results/execution_times_cli.csv")
+# chrome = pd.read_csv("./results/converted_windows_chrome.csv")
+# edge = pd.read_csv("./results/converted_windows_edge.csv")
+# firefox = pd.read_csv("./results/converted_windows_firefox.csv")
 
 # ブラウザ列を追加
-chrome["Browser"] = "Chrome"
-edge["Browser"] = "Edge"
-firefox["Browser"] = "Firefox"
+cli_ubuntu["Browser"] = "CLI_Ubuntu"
+# chrome["Browser"] = "Chrome"
+# edge["Browser"] = "Edge"
+# firefox["Browser"] = "Firefox"
 
 # 縦長（long format）に変換
 def melt_and_label(df):
@@ -21,7 +23,8 @@ def melt_and_label(df):
         value_name="Time"
     )
 
-df_all = pd.concat([melt_and_label(chrome), melt_and_label(edge), melt_and_label(firefox)])
+df_all = pd.concat([melt_and_label(cli_ubuntu)])
+# df_all = pd.concat([melt_and_label(chrome), melt_and_label(edge), melt_and_label(firefox)])
 
 # 数値化できない値（"O", "N"）をNaNに
 df_all["Time_numeric"] = pd.to_numeric(df_all["Time"], errors="coerce")
@@ -29,6 +32,7 @@ df_all["Time_numeric"] = pd.to_numeric(df_all["Time"], errors="coerce")
 # 各Filenameごとに描画
 for filename in df_all["FileName"].unique():
     subset = df_all[df_all["FileName"] == filename]
+    print(f'filename: {filename}')
 
     # n_modules = subset['Module'].nunique()
     # fig_width = max(12, n_modules * 0.8)
