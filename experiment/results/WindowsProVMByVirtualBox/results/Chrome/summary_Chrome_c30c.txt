@@ -1,0 +1,35 @@
+[Execution Environment]
+OS: Windows
+Browser: Google Chrome
+UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36
+
+=== Start Experiment ===
+
+In Process c30-15c.ext
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.0012999999998137355 s
+WasmCallTime: 922.8686000000001 s
+FSReadTime: 0.0005 s
+TotalTime: 922.8703999999999 s
+
+=== End lrs-gmp.js ===
+
+=== Start lrs-minigmp.js ===
+FSWriteTime: 0.001099999999627471 s
+WasmCallTime: 1148.2464000000004 s
+FSReadTime: 0.0007999999998137355 s
+TotalTime: 1148.2482999999997 s
+
+=== End lrs-minigmp.js ===
+
+=== Start hybrid-gmp.js ===
+FSWriteTime: 0.0007999999998137355 s
+WasmCallTime: 924.1352999999998 s
+FSReadTime: 0.0012999999998137355 s
+TotalTime: 924.1373999999994 s
+
+=== End hybrid-gmp.js ===
+[Completion] c30-15c.ext
+
+=== Termination ===

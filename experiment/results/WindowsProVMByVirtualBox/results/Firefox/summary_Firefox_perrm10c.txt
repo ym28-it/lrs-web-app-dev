@@ -1,0 +1,31 @@
+[Execution Environment]
+OS: Windows
+Browser: Mozilla Firefox
+UserAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0
+
+In Process perm10c.ine
+
+=== Start lrs-long64-safe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 549.391 s
+FSReadTime: 0.001 s
+TotalTime: 549.393 s
+
+=== End lrs-long64-safe.js ===
+
+=== Start lrs-long128-safe.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 2075.026 s
+FSReadTime: 0 s
+TotalTime: 2075.027 s
+
+=== End lrs-long128-safe.js ===
+
+=== Start lrs-gmp.js ===
+FSWriteTime: 0.001 s
+WasmCallTime: 3278.1 s
+FSReadTime: 0 s
+TotalTime: 3278.101 s
+
+=== End lrs-gmp.js ===
+[Completion] perm10c.ine
