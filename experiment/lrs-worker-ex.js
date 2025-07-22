@@ -3,8 +3,9 @@
 
 const urlParams = new URLSearchParams(self.location.search);
 const wasmModule = urlParams.get('module') || 'lrs-mp64.js';
-const version = urlParams.get('version') || 'v7.3-O2';
+// const version = urlParams.get('version') || 'v7.3-O2';
 // const version = 'openmp-v7.3';
+const version = 'profiling';
 console.log('wasmModule', wasmModule);
 console.log('Version', version);
 
