@@ -73,8 +73,8 @@ function heavyWasmProcessing(input) {
     console.log('Files written in virtual FS in worker.');
 
     // 仮想ファイルシステム上のファイルパスを引数としてWasmプログラムを実行
-    const moduleStart = performance.now();
     console.log('Module.callMain start');
+    const moduleStart = performance.now();
     Module.callMain([`/${inputFileName}`, `/${outputFileName}`]);
     const moduleEnd = performance.now();
     console.log('Module.callMain executed in worker.');

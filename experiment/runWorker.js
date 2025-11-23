@@ -22,7 +22,7 @@ export async function runWorker(moduleParam, inputText) {
                 const Result = e.data.Result;
                 console.log('get timeResult');
                 console.log(`elapsedTime: ${Result.totalTime} ms`);
-                elapsed = Result.totalTime / 1000;
+                elapsed = Result.WasmCallTime / 1000;
 
                 resultArea.value += `FSWriteTime: ${Result.FSWriteTime / 1000} s\n`;
                 resultArea.value += `WasmCallTime: ${Result.WasmCallTime / 1000} s\n`;
