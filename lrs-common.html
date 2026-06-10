@@ -44,7 +44,24 @@
         </div>
         
         <div id="loadingIndicator"></div>
+
+        <section id="visualization">
+            <h2>Polytope Visualization (up to 3D)</h2>
+            <button type="button" id="visualizeButton">Visualize</button>
+            <span id="vizMessage"></span>
+            <div id="vizContainer"></div>
+        </section>
     </main>
 
     <script src="./lrs-common.js"></script>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="./visualization/visualizer-main.js"></script>
 </body>

@@ -128,6 +128,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 hideLoading(); // 結果受信後にローディング非表示
                 console.log('hide Loading');
                 currentWorker.terminate(); // Workerの終了（リソース解放）
+
+                // 可視化モジュールへ結果到着を通知
+                document.dispatchEvent(new CustomEvent('lrs:result'));
             }
         };
 
